@@ -38,7 +38,7 @@ export const blogPosts: BlogPost[] = [
     slug: 'wearable-safety-tech-protecting-workers-roi',
     excerpt: 'Discover how wearable safety technology puts worker wellbeing first while delivering measurable business benefits through injury prevention and enhanced workplace safety.',
     date: 'June 12, 2025',
-    author: 'WRLDS Technologies',
+    author: 'Calterras Technologies',
     category: 'Business',
     imageUrl: '/lovable-uploads/078a129e-0f98-4d91-af61-873687db1a04.png',
     keywords: [
@@ -144,7 +144,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'heading',
-        content: 'How WRLDS Supports Your Safety Mission'
+        content: 'How Calterras Supports Your Safety Mission'
       },
       {
         type: 'paragraph',
@@ -203,7 +203,7 @@ export const blogPosts: BlogPost[] = [
     slug: 'smart-ppe-revolution-safety-technology',
     excerpt: 'Discover how smart textiles and sensor technology are revolutionizing personal protective equipment, creating safer workplaces and preventing accidents before they happen.',
     date: 'June 5, 2025',
-    author: 'WRLDS Technologies',
+    author: 'Calterras Technologies',
     category: 'Innovation',
     imageUrl: '/lovable-uploads/927dae7e-6aaf-4b76-add2-1287a1dd9dc0.png',
     keywords: [
@@ -298,7 +298,7 @@ export const blogPosts: BlogPost[] = [
     slug: 'leveraging-sensor-technology-product-development',
     excerpt: 'Explore how sensor technology is revolutionizing product development across industries, from smart textiles to IoT devices, and learn strategic approaches for implementation.',
     date: 'May 8, 2025',
-    author: 'WRLDS Technologies',
+    author: 'Calterras Technologies',
     category: 'Technology',
     imageUrl: '/lovable-uploads/6b0637e9-4a7b-40d0-b219-c8b7f879f93e.png',
     keywords: [
@@ -385,9 +385,9 @@ export const blogPosts: BlogPost[] = [
     id: '3',
     title: 'From Idea to Launch: Our Smart Product Development Process',
     slug: 'from-idea-to-launch-development-process',
-    excerpt: 'Take a behind-the-scenes look at how WRLDS transforms ideas into market-ready smart products through our proven 5-step development process.',
+    excerpt: 'Take a behind-the-scenes look at how Calterras transforms ideas into market-ready smart products through our proven 5-step development process.',
     date: 'May 15, 2025',
-    author: 'WRLDS Technologies',
+    author: 'Calterras Technologies',
     category: 'Process',
     imageUrl: '/lovable-uploads/5262afdb-dd24-4d5e-be66-7c6717adbca9.png',
     keywords: [
@@ -401,11 +401,11 @@ export const blogPosts: BlogPost[] = [
       'textile development',
       'smart textiles'
     ],
-    metaDescription: 'Learn about WRLDS proven 5-step process for developing smart products from initial concept to market launch. Discover how we turn ideas into reality.',
+    metaDescription: 'Learn about Calterras proven 5-step process for developing smart products from initial concept to market launch. Discover how we turn ideas into reality.',
     content: [
       {
         type: 'paragraph',
-        content: 'At WRLDS, we simplify the journey from an idea to a finished smart product. Whether you\'re starting from scratch or already have a clear concept ready to scale, we\'re here to support you exactly where you need us.'
+        content: 'At Calterras, we simplify the journey from an idea to a finished smart product. Whether you\'re starting from scratch or already have a clear concept ready to scale, we\'re here to support you exactly where you need us.'
       },
       {
         type: 'paragraph',
@@ -465,11 +465,11 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        content: 'Finally, it\'s launch day. You introduce your smart glove, thoroughly tested and production-ready, to the market. WRLDS provides ongoing support to ensure a smooth launch—from technical documentation to supporting the app\'s release.'
+        content: 'Finally, it\'s launch day. You introduce your smart glove, thoroughly tested and production-ready, to the market. Calterras provides ongoing support to ensure a smooth launch—from technical documentation to supporting the app\'s release.'
       },
       {
         type: 'heading',
-        content: 'Why Choose WRLDS?'
+        content: 'Why Choose Calterras?'
       },
       {
         type: 'paragraph',
@@ -496,7 +496,7 @@ export const blogPosts: BlogPost[] = [
     slug: 'ai-powered-uniforms-emergency-alerts',
     excerpt: 'Explore how AI-integrated uniforms are revolutionizing emergency response by providing real-time health monitoring and automated alert systems for first responders and industrial workers.',
     date: 'May 8, 2025',
-    author: 'WRLDS Technologies',
+    author: 'Calterras Technologies',
     category: 'Innovation',
     imageUrl: '/lovable-uploads/4187f423-ba69-4043-be76-c43098488348.png',
     keywords: [
@@ -564,7 +564,7 @@ export const blogPosts: BlogPost[] = [
     slug: 'sensor-integrated-textiles-trend',
     excerpt: 'Discover how sensor-integrated textiles are transforming industries from healthcare to sports, creating new possibilities for smart, responsive products.',
     date: 'May 2, 2025',
-    author: 'WRLDS Technologies',
+    author: 'Calterras Technologies',
     category: 'Technology',
     imageUrl: '/lovable-uploads/48ecf6e2-5a98-4a9d-af6f-ae2265cd4098.png',
     keywords: [

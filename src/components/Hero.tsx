@@ -1,139 +1,227 @@
-import { ArrowRight, Code, Cpu, Layers, MessageSquare } from "lucide-react";
-import { useIsMobile } from "@/hooks/use-mobile";
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import { Arrow } from "@radix-ui/react-tooltip";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
+import { useState, useEffect, useMemo } from "react";
+import { Link } from "react-router-dom";
+import { Globe } from "./Globe";
 
 const Hero = () => {
-  const isMobile = useIsMobile();
+  const [currentWord, setCurrentWord] = useState(0);
+  const words = ["Advanced", "Innovative", "Reliable", "Modern"];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentWord((prev) => (prev + 1) % words.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, [words.length]);
+
+  const particles = useMemo(() => {
+    return [...Array(15)].map((_, i) => ({
+      id: i,
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      xDrift: Math.random() * 40 - 20, // -20px to 20px drift
+      duration: 6 + Math.random() * 4, // 6-10 seconds
+      delay: Math.random() * 3,
+      color: i % 2 === 0 ? "147, 197, 253" : "196, 181, 253",
+    }));
+  }, []);
+
   const containerVariants = {
-    hidden: {
-      opacity: 0
-    },
+    hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
         staggerChildren: 0.15,
         delayChildren: 0.3,
-        duration: 0.8
-      }
-    }
-  };
-  const itemVariants = {
-    hidden: {
-      y: 20,
-      opacity: 0
+      },
     },
+  };
+
+  const itemVariants = {
+    hidden: { y: 30, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
-      transition: {
-        duration: 0.6
-      }
-    }
+      transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] as const },
+    },
   };
-  
-  const scrollToContact = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({
-        behavior: 'smooth'
-      });
-    }
-  };
-  
-  return <motion.div className="relative w-full" initial="hidden" animate="visible" variants={containerVariants}>
-      <div className="banner-container bg-black relative overflow-hidden h-[50vh] sm:h-[60vh] md:h-[500px] lg:h-[550px] xl:h-[600px] w-full">
-        <div className="absolute inset-0 bg-black w-full">
-          <video 
-            autoPlay 
-            loop 
-            muted 
-            playsInline 
-            preload="metadata"
-            className={`w-full h-full object-cover opacity-70 grayscale ${isMobile ? 'object-right' : 'object-center'}`}
-            poster="/lovable-uploads/4bfa0d71-3ed2-4693-90b6-35142468907f.png"
-          >
-            <source src="/lovable-uploads/video_1751292840840_1751292842546.mp4" type="video/mp4" />
-            {/* Fallback image if video fails to load */}
-            <img 
-              src="/lovable-uploads/4bfa0d71-3ed2-4693-90b6-35142468907f.png" 
-              alt="WRLDS Technologies Connected People" 
-              className={`w-full h-full object-cover opacity-70 grayscale ${isMobile ? 'object-right' : 'object-center'}`} 
-            />
-          </video>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-white"></div>
-        </div>
-        
-        <div className="banner-overlay bg-transparent pt-20 sm:pt-24 md:pt-32 w-full">
-          <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center h-full">
-            <motion.div className="w-full max-w-4xl text-center" variants={itemVariants}>
-              <motion.h1 className="banner-title text-white" variants={itemVariants}>The Future of Smart Textile Technology is here.</motion.h1>
-              <motion.p className="banner-subtitle text-gray-300 mt-4 sm:mt-6" variants={itemVariants}>
-                We integrate AI-powered textile sensors into clothing, footwear, and wearables.
-              </motion.p>
-              <motion.div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6 sm:mt-8 justify-center items-center" variants={itemVariants}>
-                {/* Styled as a button but using an anchor tag for project navigation */}
-                <button 
-                  className="w-full sm:w-auto min-h-[44px] px-6 sm:px-8 py-3 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition-all shadow-lg hover:shadow-xl hover:shadow-gray-300/20 flex items-center justify-center group text-sm sm:text-base font-medium"
-                  onClick={e => {
-                    e.preventDefault();
-                    const projectsSection = document.getElementById('projects');
-                    if (projectsSection) {
-                      projectsSection.scrollIntoView({
-                        behavior: 'smooth'
-                      });
-                    }
-                  }}
-                >
-                  Explore Projects
-                  <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-                </button>
-                
-                {/* Using the Button component from shadcn but with custom styling to match the explore button */}
-                <button 
-                  className="w-full sm:w-auto min-h-[44px] px-6 sm:px-8 py-3 bg-gray-700 text-white rounded-md hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:shadow-gray-300/20 flex items-center justify-center group text-sm sm:text-base font-medium"
-                  onClick={scrollToContact}
-                >
-                  Contact Us
-                  <MessageSquare className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform" />
-                </button>
-              </motion.div>
-            </motion.div>
-          </div>
+
+  return (
+    <motion.div
+      className="relative w-full min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
+      {/* Subtle gradient orb */}
+      {/* <motion.div
+        className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-gradient-to-br from-cyan-200/10 to-blue-300/10 rounded-full blur-3xl"
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.4, 0.6, 0.4],
+          x: [0, 80, 0],
+          y: [0, 50, 0],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          repeatType: "loop",
+          ease: "easeInOut",
+        }}
+      /> */}
+      <motion.div
+        className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-gradient-to-tr from-purple-500/20 to-pink-500/20 rounded-full blur-3xl"
+        animate={{
+          scale: [1, 1.3, 1],
+          opacity: [0.4, 0.7, 0.4],
+          x: [0, -50, 0],
+          y: [0, -60, 0],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          repeatType: "loop",
+          ease: "easeInOut",
+        }}
+      />
+      <motion.div
+        className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-gradient-to-r from-indigo-400/30 via-purple-400/30 to-fuchsia-400/30 rounded-full blur-3xl"
+        animate={{
+          scale: [1, 1.15, 1],
+          opacity: [0.3, 0.5, 0.3],
+          rotate: [0, 180, 360],
+        }}
+        transition={{
+          duration: 15,
+          repeat: Infinity,
+          repeatType: "loop",
+          ease: "linear",
+        }}
+      />
+
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none flex items-center justify-end">
+        <div className="relative h-full aspect-square opacity-40 translate-x-[30%] -translate-y-[25%]">
+          <Globe />
         </div>
       </div>
-      
-      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 mx-auto">
-        <motion.div className="mt-6 md:mt-8 grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4" variants={containerVariants} initial="hidden" animate="visible" transition={{
-        delay: 0.6
-      }}>
-          <motion.div className="bg-white p-4 md:p-5 rounded-xl shadow-sm border border-gray-100 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md" variants={itemVariants}>
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-gray-100 flex items-center justify-center rounded-lg text-gray-500 mb-2 md:mb-3">
-              <Cpu className="w-5 h-5 md:w-6 md:h-6" />
-            </div>
-            <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-gray-800">Smart Textiles</h3>
-            <p className="text-gray-600 text-xs md:text-sm">Intelligent fabric sensors that seamlessly integrate into clothing and footwear.</p>
-          </motion.div>
-          
-          <motion.div className="bg-white p-4 md:p-5 rounded-xl shadow-sm border border-gray-100 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md" variants={itemVariants}>
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-gray-100 flex items-center justify-center rounded-lg text-gray-500 mb-2 md:mb-3">
-              <Code className="w-5 h-5 md:w-6 md:h-6" />
-            </div>
-            <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-gray-800">Adaptive AI</h3>
-            <p className="text-gray-600 text-xs md:text-sm">Industry-specific algorithms that transform textile sensor data into meaningful insights.</p>
-          </motion.div>
-          
-          <motion.div className="bg-white p-4 md:p-5 rounded-xl shadow-sm border border-gray-100 transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md" variants={itemVariants}>
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-gray-100 flex items-center justify-center rounded-lg text-gray-500 mb-2 md:mb-3">
-              <Layers className="w-5 h-5 md:w-6 md:h-6" />
-            </div>
-            <h3 className="text-base md:text-lg font-semibold mb-1 md:mb-2 text-gray-800">Cross-Industry</h3>
-            <p className="text-gray-600 text-xs md:text-sm">Solutions for sports, military, healthcare, industrial, and professional environments.</p>
-          </motion.div>
+
+      {particles.map((particle) => (
+        <motion.div
+          key={particle.id}
+          className="absolute w-2 h-2 rounded-full"
+          style={{
+            left: `${particle.left}%`,
+            top: `${particle.top}%`,
+            background: `rgba(${particle.color}, 0.4)`,
+          }}
+          initial={{ y: 0, x: 0, opacity: 0, scale: 0 }}
+          animate={{
+            y: [0, -50, 0],
+            x: [0, particle.xDrift, 0],
+            opacity: [0, 0.6, 0],
+            scale: [0, 1.2, 0],
+          }}
+          transition={{
+            duration: particle.duration,
+            repeat: Infinity,
+            times: [0, 0.5, 1], // Evenly distribute keyframes
+            ease: [0.4, 0, 0.2, 1], // Custom cubic-bezier for smoother easing
+            delay: particle.delay,
+          }}
+        />
+      ))}
+
+      <div className="relative z-10 w-full mx-auto px-6 lg:px-8 max-w-6xl pt-32 pb-20 flex flex-col items-center justify-center min-h-screen">
+        {/* Badge */}
+        <motion.div
+          className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-400/20 rounded-full px-4 py-2 mb-8"
+          variants={itemVariants}
+        >
+          <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+          <span className="text-sm font-medium text-blue-200">
+            Trusted by Healthcare Leaders
+          </span>
         </motion.div>
+
+        {/* Main headline */}
+        <motion.div className="text-center mb-6" variants={itemVariants}>
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[1.1] tracking-tight">
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={currentWord}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
+                className="inline-block bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent"
+              >
+                {words[currentWord]}
+              </motion.span>
+            </AnimatePresence>
+            <br />
+            Healthcare Solutions
+          </h1>
+        </motion.div>
+
+        {/* Subheadline */}
+        <motion.p
+          className="text-center text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed mb-12"
+          variants={itemVariants}
+        >
+          Equipment that transforms care. Technology that empowers providers.
+        </motion.p>
+
+        {/* CTA Section */}
+        <div className="flex flex-row gap-3 pt-3 border-t border-white/10">
+          <Link
+            to="/careers"
+            className="flex items-center gap-3 justify-between px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+            onClick={() => {
+              window.scrollTo(0, 0);
+            }}
+          >
+            <span className="text-white text-[15px] leading-none">
+              Explore Solutions
+            </span>
+            <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center">
+              <ArrowUpRight className="w-4 h-4 text-gray-900" />
+            </div>
+          </Link>
+
+          <button className="flex items-center gap-3 justify-between px-5 py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 transition-colors">
+            <span className="text-white text-[15px] leading-none">
+              Request Demo
+            </span>
+            <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center">
+              <ArrowUpRight className="w-4 h-4 text-blue-900" />
+            </div>
+          </button>
+        </div>
       </div>
-    </motion.div>;
+
+      {/* Scroll indicator */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.5, duration: 0.6 }}
+      >
+        <motion.div
+          className="w-6 h-10 rounded-full border-2 border-white/20 flex items-start justify-center p-2"
+          animate={{ opacity: [0.3, 0.7, 0.3] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          <motion.div
+            className="w-1.5 h-1.5 rounded-full bg-white/60"
+            animate={{ y: [0, 12, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+          />
+        </motion.div>
+      </motion.div>
+    </motion.div>
+  );
 };
 
 export default Hero;

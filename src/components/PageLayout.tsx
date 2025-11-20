@@ -1,10 +1,9 @@
-
-import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import ContactInfo from '@/components/ContactInfo';
-import FloatingContactButton from '@/components/FloatingContactButton';
+import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import ContactInfo from "@/components/ContactInfo";
+import FloatingContactButton from "@/components/FloatingContactButton";
 
 type PageLayoutProps = {
   children: React.ReactNode;
@@ -20,7 +19,7 @@ const PageLayout = ({ children, showContact = true }: PageLayoutProps) => {
   }, [location]);
 
   return (
-    <div className="min-h-screen bg-white w-full max-w-[100vw] overflow-x-hidden">
+    <div className="min-h-screen bg-white w-full max-w-[100vw] overflow-x-hidden overscroll-none">
       <Navbar />
       {children}
       {showContact && <ContactInfo />}

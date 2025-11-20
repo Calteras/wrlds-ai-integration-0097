@@ -1,9 +1,8 @@
-
-import { motion } from 'framer-motion';
-import { ArrowLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import PageLayout from '@/components/PageLayout';
-import { useEffect } from 'react';
+import { motion } from "framer-motion";
+import { ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
+import PageLayout from "@/components/PageLayout";
+import { useEffect } from "react";
 
 interface ProjectPageLayoutProps {
   children: React.ReactNode;
@@ -20,38 +19,74 @@ const ProjectPageLayout: React.FC<ProjectPageLayoutProps> = ({
   subtitle,
   imageUrl,
   brandName,
-  darkMode = false
+  darkMode = false,
 }) => {
   // Ensure page scrolls to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  
-  const bgColor = darkMode ? 'bg-[#0c151c]' : 'bg-gray-100';
-  const textColor = darkMode ? 'text-white' : 'text-gray-900';
-  
+  const textColor = darkMode ? "text-white" : "text-gray-900";
+
   return (
     <PageLayout>
-      <div className="pt-16 pb-16">
+      <div className="pb-16">
         {/* Hero Section */}
-        <div 
-          className={`relative w-full h-[40vh] md:h-[50vh] overflow-hidden flex items-center justify-center`}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className={`relative w-full h-[40vh] md:h-[50vh] overflow-hidden flex items-center justify-center bg-gradient-to-br from-black via-blue-900 to-indigo-900`}
         >
-          {/* Background Image with Overlay */}
-          <div 
-            className="absolute inset-0 bg-cover bg-center" 
-            style={{ backgroundImage: `url(${imageUrl})` }}
-          ></div>
-          <div className={`absolute inset-0 ${darkMode ? 'bg-black/70' : 'bg-white/70'}`}></div>
-          
+          {/* Animated Background Blobs */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <motion.div
+              className={`absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full blur-3xl ${
+                darkMode
+                  ? "bg-gradient-to-br from-cyan-400/20 to-blue-500/20"
+                  : "bg-gradient-to-br from-cyan-200/40 to-blue-300/40"
+              }`}
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [0.4, 0.6, 0.4],
+                x: [0, 80, 0],
+                y: [0, 50, 0],
+              }}
+              transition={{
+                duration: 8,
+                repeat: Infinity,
+                repeatType: "loop",
+                ease: "easeInOut",
+              }}
+            />
+            <motion.div
+              className={`absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full blur-3xl ${
+                darkMode
+                  ? "bg-gradient-to-tr from-purple-500/20 to-pink-500/20"
+                  : "bg-gradient-to-tr from-purple-200/40 to-pink-200/40"
+              }`}
+              animate={{
+                scale: [1, 1.3, 1],
+                opacity: [0.4, 0.7, 0.4],
+                x: [0, -50, 0],
+                y: [0, -60, 0],
+              }}
+              transition={{
+                duration: 10,
+                repeat: Infinity,
+                repeatType: "loop",
+                ease: "easeInOut",
+              }}
+            />
+          </div>
+
           <div className="absolute inset-0 flex flex-col items-center justify-center p-4 z-10">
-            <motion.div 
+            <motion.div
               className="flex flex-col items-center justify-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <motion.h1 
+              <motion.h1
                 className={`text-4xl md:text-5xl font-bold mb-4 text-center ${textColor}`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -59,14 +94,18 @@ const ProjectPageLayout: React.FC<ProjectPageLayoutProps> = ({
               >
                 {title}
               </motion.h1>
-              <motion.div 
-                className={`w-20 h-1 ${darkMode ? 'bg-white' : 'bg-gray-800'} mb-6`}
+              <motion.div
+                className={`w-20 h-1 ${
+                  darkMode ? "bg-white" : "bg-gray-800"
+                } mb-6`}
                 initial={{ width: 0 }}
                 animate={{ width: 80 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
               />
-              <motion.p 
-                className={`text-xl text-center max-w-2xl ${darkMode ? 'text-white' : 'text-gray-700'}`}
+              <motion.p
+                className={`text-xl text-center max-w-2xl ${
+                  darkMode ? "text-white" : "text-gray-700"
+                }`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
@@ -75,19 +114,30 @@ const ProjectPageLayout: React.FC<ProjectPageLayoutProps> = ({
               </motion.p>
             </motion.div>
           </div>
-        </div>
-        
+        </motion.div>
+
         {/* Back Button */}
         <div className="w-full max-w-4xl mx-auto px-6 md:px-8 mt-8">
-          <Link to="/#projects" className="inline-flex items-center text-gray-600 hover:text-gray-800 transition-colors">
+          <Link
+            to="/#projects"
+            className="inline-flex items-center text-gray-600 hover:text-gray-800 transition-colors"
+          >
             <ArrowLeft className="mr-2 h-4 w-4" />
             <span>Back to Projects</span>
           </Link>
         </div>
-        
+
+        {/* Background Image with Overlay */}
+        <div className="w-full max-w-4xl mx-auto px-6 md:px-8 mt-8">
+          <div
+            className="w-full h-64 md:h-96 bg-cover bg-center rounded-lg"
+            style={{ backgroundImage: `url(${imageUrl})` }}
+          ></div>
+        </div>
+
         {/* Case Study Content */}
         <div className="w-full max-w-4xl mx-auto px-6 md:px-8 py-12">
-          <motion.div 
+          <motion.div
             className="prose prose-lg max-w-none"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

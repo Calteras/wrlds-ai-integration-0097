@@ -1,5 +1,6 @@
 
 import type { Config } from "tailwindcss";
+import animate from "tailwindcss-animate";
 
 export default {
 	darkMode: ["class"],
@@ -63,12 +64,19 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				wrlds: {
+				Calterras: {
 					teal: '#9F9EA1',
 					dark: '#3F3F3F',
 					light: '#F6F6F7',
 					accent: '#C8C8C9',
 					muted: '#F1F1F1'
+				},
+				healthcare: {
+					blue: '#1E40AF',
+					lightBlue: '#3B82F6',
+					darkBlue: '#1E3A8A',
+					accent: '#60A5FA',
+					muted: '#DBEAFE'
 				}
 			},
 			borderRadius: {
@@ -128,7 +136,8 @@ export default {
 				'bounce-subtle': 'bounce-subtle 2s ease-in-out infinite',
 				'shimmer': 'shimmer 3s linear infinite'
 			}
-		}
+		},
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [animate],
 } satisfies Config;
+
