@@ -114,12 +114,13 @@ const Footer = () => {
             </div>
 
             <p className="text-gray-200 mb-6">
-              Calterras Holdings is a technology and innovation group building
-              purpose-driven software companies across F&B, HR, Healthcare, and
-              Agriculture — empowering businesses to grow through better tools.
+              Calterras is an Indonesian software startup building operational software for businesses. TerraPOS is our current flagship product for F&B teams.
             </p>
             <p className="text-gray-200 mb-6">
-              Indonesia
+              Surabaya, Indonesia
+            </p>
+            <p className="text-gray-200 mb-6">
+              Founded October 2024
             </p>
             <div className="flex space-x-4">
               <a
@@ -204,7 +205,7 @@ const Footer = () => {
 
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-300 text-sm mb-4 md:mb-0">
-            © {new Date().getFullYear()} Calterras Holdings. All rights reserved.
+            © {new Date().getFullYear()} Calterras. All rights reserved.
           </p>
           <div className="flex space-x-6">
             <Link

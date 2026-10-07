@@ -285,10 +285,10 @@ const ContactForm = () => {
               <h3 className="text-xl font-semibold mb-2">Email Us</h3>
               <p className="text-gray-600 mb-2">For general inquiries:</p>
               <a
-                href="mailto:info@Calterras.com"
+                href="mailto:hello@calterras.com"
                 className="text-blue-500 hover:underline"
               >
-                hello@Calterras.com
+                hello@calterras.com
               </a>
               <p className="text-gray-600 mt-2 mb-2"></p>
             </div>

@@ -139,7 +139,7 @@ const PrivacyPolicy = () => {
               </h2>
               <p className="text-gray-600 mb-4">
                 If you have any questions about this Privacy Policy, please
-                contact us at hello@Calterras.com
+                contact us at hello@calterras.com
               </p>
             </div>
           </div>

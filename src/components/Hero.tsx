@@ -141,7 +141,7 @@ const Hero = () => {
         >
           <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
           <span className="text-sm font-medium text-blue-200">
-            Calterras Holdings — Technology & Innovation Group
+            Calterras — Operational software for businesses
           </span>
         </motion.div>
 
@@ -170,7 +170,7 @@ const Hero = () => {
           className="text-center text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed mb-12"
           variants={itemVariants}
         >
-          We build and invest in technology companies that elevate industries — from food & beverage and agriculture to healthcare and human resources.
+          Calterras is an Indonesian software startup. Our current flagship product is TerraPOS, an offline-first, AI-powered point-of-sale platform for F&B businesses.
         </motion.p>
 
         {/* CTA Section */}
