@@ -18,21 +18,21 @@ interface SEOProps {
 
 const SEO: React.FC<SEOProps> = ({
   title = "Calterras",
-  description = "Calterras Technologies: Pioneering smart engineering solutions with textile sensors for sports, safety, and performance monitoring.",
+  description = "Calterras is an Indonesian software startup building operational software for businesses. TerraPOS is our offline-first, AI-powered point-of-sale platform for F&B businesses.",
   type = "website",
-  name = "Calterras Technologies",
+  name = "Calterras",
   imageUrl = "/lovable-uploads/48ecf6e2-5a98-4a9d-af6f-ae2265cd4098.png",
   publishDate,
   modifiedDate,
   author,
   category,
   keywords = [
-    "smart textiles",
-    "wearable technology",
-    "textile sensors",
-    "sports tech",
-    "safety monitoring",
-    "performance analytics",
+    "operational software",
+    "TerraPOS",
+    "offline-first POS",
+    "F&B software",
+    "Indonesian software startup",
+    "point-of-sale platform",
   ],
   isBlogPost = false,
 }) => {
@@ -80,18 +80,18 @@ const SEO: React.FC<SEOProps> = ({
   const organizationStructuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Calterras Technologies",
-    url: "https://Calterras.com",
+    name: "Calterras",
+    url: "https://calterras.com",
     logo: "https://Calterras.com/lovable-uploads/14ea3fe0-19d6-425c-b95b-4117bc41f3ca.png",
-    description: "Pioneering smart engineering solutions with textile sensors",
+    description: "Indonesian software startup building operational software, starting with TerraPOS for F&B businesses",
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer service",
-      email: "info@Calterras.com",
+      email: "hello@calterras.com",
     },
     sameAs: [
-      "https://www.linkedin.com/company/Calterras-technologies",
-      "https://twitter.com/Calterrastechnologies",
+      "https://www.linkedin.com/company/calterras-co",
+      "https://x.com/calterrasco",
     ],
   };
 
@@ -116,19 +116,19 @@ const SEO: React.FC<SEOProps> = ({
           dateModified: modifiedDate || publishDate,
           author: {
             "@type": "Organization",
-            name: author || "Calterras Technologies",
-            url: "https://Calterras.com",
+            name: author || "Calterras",
+            url: "https://calterras.com",
           },
           publisher: {
             "@type": "Organization",
-            name: "Calterras Technologies",
+            name: "Calterras",
             logo: {
               "@type": "ImageObject",
-              url: "https://Calterras.com/lovable-uploads/14ea3fe0-19d6-425c-b95b-4117bc41f3ca.png",
+              url: "https://calterras.com/lovable-uploads/14ea3fe0-19d6-425c-b95b-4117bc41f3ca.png",
               width: 512,
               height: 512,
             },
-            url: "https://Calterras.com",
+            url: "https://calterras.com",
           },
           description: description,
           keywords: enhancedKeywords.join(", "),
@@ -232,7 +232,7 @@ const SEO: React.FC<SEOProps> = ({
       <meta property="og:image" content={absoluteImageUrl} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:site_name" content="Calterras Technologies" />
+      <meta property="og:site_name" content="Calterras" />
       <meta property="og:locale" content="en_US" />
       {isBlogPost && category && (
         <meta property="article:section" content={category} />
@@ -253,8 +253,8 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={absoluteImageUrl} />
-      <meta name="twitter:site" content="@Calterrastechnologies" />
-      <meta name="twitter:creator" content="@Calterrastechnologies" />
+      <meta name="twitter:site" content="@calterrasco" />
+      <meta name="twitter:creator" content="@calterrasco" />
 
       {/* LinkedIn specific */}
       <meta property="og:image:secure_url" content={absoluteImageUrl} />

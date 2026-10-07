@@ -26,13 +26,11 @@ const ProductPlatform = () => {
         className="mb-6"
       >
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-          Product
+          TerraPOS platform
         </h2>
         <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-4xl">
-          5 years invested into tech focused end-to-end platform allowing
-          customer brand to own pricing, branding, marketing and sales.
-          Calterras can help with all aspects of product creation,
-          certification, initial production and app development.
+          TerraPOS brings point-of-sale, kitchen operations, ordering, and
+          analytics into one offline-first system for F&B businesses.
         </p>
       </motion.div>
 
@@ -47,41 +45,41 @@ const ProductPlatform = () => {
         >
           <div className="bg-gray-200 rounded-xl p-4 sm:p-6">
             <h3 className="text-lg sm:text-xl font-bold text-center mb-1">
-              Physical Devices
+              Store & Service Layer
             </h3>
-            <p className="text-xs sm:text-sm text-center mb-4">Data input</p>
+            <p className="text-xs sm:text-sm text-center mb-4">Daily operations</p>
 
             <div className="space-y-3">
               {[
                 {
                   icon: <Gauge className="text-black w-4 h-4 sm:w-5 sm:h-5" />,
-                  text: "Motion Sensors",
+                  text: "POS terminals",
                 },
                 {
                   icon: <Cpu className="text-black w-4 h-4 sm:w-5 sm:h-5" />,
-                  text: "Heart Rate Sensors",
+                  text: "Local order cache",
                 },
                 {
                   icon: (
                     <Bluetooth className="text-black w-4 h-4 sm:w-5 sm:h-5" />
                   ),
-                  text: "Wireless Connectivity",
+                  text: "Offline transaction queue",
                 },
                 {
                   icon: (
                     <Battery className="text-black w-4 h-4 sm:w-5 sm:h-5" />
                   ),
-                  text: "Power Management",
+                  text: "Receipt printing",
                 },
                 {
                   icon: (
                     <Database className="text-black w-4 h-4 sm:w-5 sm:h-5" />
                   ),
-                  text: "Local Storage",
+                  text: "Device sync",
                 },
                 {
                   icon: <Wifi className="text-black w-4 h-4 sm:w-5 sm:h-5" />,
-                  text: "Cellular Connection",
+                  text: "Network recovery",
                 },
               ].map((item, index) => (
                 <div
@@ -97,7 +95,7 @@ const ProductPlatform = () => {
             </div>
 
             <p className="text-xs sm:text-sm text-center mt-4 sm:mt-6">
-              The hardware that collects data
+              The tools that keep service moving
               <br />
               from the physical world
             </p>
@@ -129,7 +127,7 @@ const ProductPlatform = () => {
           <div className="bg-gray-200 rounded-xl p-4 sm:p-6">
             <div className="flex flex-col items-center mb-3 sm:mb-4">
               <h3 className="text-xl sm:text-2xl font-bold text-center mb-0">
-                Calterras
+                TerraPOS
               </h3>
               <p className="text-lg sm:text-xl font-medium text-center">
                 Platform
@@ -198,9 +196,9 @@ const ProductPlatform = () => {
             </div>
 
             <p className="text-xs sm:text-sm text-center mt-4 sm:mt-6">
-              Our platform processes data and
+              TerraPOS processes orders and
               <br />
-              powers intelligent applications
+              powers reliable F&B operations
             </p>
           </div>
         </motion.div>

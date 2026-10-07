@@ -74,7 +74,7 @@ const About = () => {
               className="text-xl text-slate-300 mb-12 text-right"
             >
               We're a team of innovators dedicated to <br /> revolutionizing
-              smart textile technology <br /> for industries worldwide.
+              operational software <br /> for Indonesian businesses.
             </motion.p>
           </div>
         </motion.div>
@@ -89,15 +89,10 @@ const About = () => {
               >
                 <h2 className="text-3xl font-bold">Our Mission</h2>
                 <p className="text-gray-600">
-                  At Calterras Technologies, we're on a mission to transform
-                  ordinary textiles into intelligent, data-driven solutions that
-                  improve safety, performance, and quality of life across
-                  industries.
+                  Calterras is an Indonesian software startup building operational software for businesses. Our current flagship product is TerraPOS, an offline-first, AI-powered point-of-sale platform for F&B businesses.
                 </p>
                 <p className="text-gray-600">
-                  We believe that by embedding intelligence into everyday
-                  fabrics, we can create a more connected, responsive, and safer
-                  world.
+                  Founded in October 2024, we are building from Surabaya with a close, practical relationship with the operators who use our products.
                 </p>
               </motion.div>
 
@@ -112,30 +107,25 @@ const About = () => {
                   <li className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-gray-700 mt-1 mr-3 flex-shrink-0" />
                     <span>
-                      <strong>Innovation:</strong> We push boundaries to create
-                      solutions that weren't possible before.
+                      <strong>Useful first:</strong> We solve operational problems that teams face every day.
                     </span>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-gray-700 mt-1 mr-3 flex-shrink-0" />
                     <span>
-                      <strong>Quality:</strong> We're committed to excellence in
-                      every sensor, algorithm, and solution we deliver.
+                      <strong>Close to users:</strong> We build with the businesses that rely on our software.
                     </span>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-gray-700 mt-1 mr-3 flex-shrink-0" />
                     <span>
-                      <strong>Collaboration:</strong> We work closely with our
-                      clients to ensure their unique needs are met.
+                      <strong>Clarity:</strong> We make complex workflows easier to understand and run.
                     </span>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-gray-700 mt-1 mr-3 flex-shrink-0" />
                     <span>
-                      <strong>Impact:</strong> We measure success by the
-                      tangible differences our technology makes in the real
-                      world.
+                      <strong>Momentum:</strong> We improve the product through real operating feedback.
                     </span>
                   </li>
                 </ul>
@@ -151,25 +141,13 @@ const About = () => {
               <h2 className="text-3xl font-bold mb-6">Our Story</h2>
               <div className="bg-white rounded-xl border border-gray-200 p-8 shadow-sm">
                 <p className="text-gray-600 mb-4">
-                  We started with the ambition to make an inherently scattered
-                  and complex development area modular, smart and available to
-                  analog brands. After successfully raising millions of dollars
-                  for development, we spent the first two years in full code
-                  mode.
+                  Calterras started in Surabaya to build software around the way Indonesian businesses actually operate: busy, practical, and not always connected.
                 </p>
                 <p className="text-gray-600 mb-4">
-                  The goal was to turn all the scattered hardware and building
-                  blocks into simple modules to be assembled like Lego. During
-                  this time we took in a range of customers for whom we built
-                  prototypes - a way for us to make sure what we built had
-                  bearing in real world use cases.
+                  Our first product is TerraPOS, an offline-first point-of-sale platform for F&B businesses. It brings checkout, kitchen workflows, ordering, and insight into one operational system.
                 </p>
                 <p className="text-gray-600">
-                  In 2023 we felt we had reached a technology level allowing us
-                  to start working on enterprise level. Since then, we have
-                  focused on textile integrations because of the enormous
-                  potential smart textiles have across multiple industries from
-                  healthcare to public safety.
+                  TerraPOS is currently in early Beta as we onboard our first merchant users and learn from real service environments.
                 </p>
               </div>
             </motion.div>
@@ -182,9 +160,7 @@ const About = () => {
             >
               <h2 className="text-3xl font-bold mb-6">Our Team</h2>
               <p className="text-gray-600 mb-8">
-                Our diverse team combines expertise in textile engineering,
-                electronics, software development, artificial intelligence, and
-                industry-specific knowledge to deliver holistic solutions.
+                Our team combines software, product, and business experience to build tools that help F&B operators run better.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -192,7 +168,7 @@ const About = () => {
                   {
                     name: "Saifulloh Fadli",
                     role: "CEO and Founder",
-                    bio: "Leading Calterras Technologies with a vision to transform the future of smart textiles.",
+                    bio: "Building Calterras and TerraPOS around the needs of Indonesian businesses.",
                     image:
                       "/lovable-uploads/aa5291bd-2417-4c1e-9a02-0bcc71a92507.png",
                   },
@@ -205,8 +181,8 @@ const About = () => {
                   },
                   {
                     name: "Chengjie Li",
-                    role: "Hardware Lead",
-                    bio: "Expert in embedded systems engineering, leading our hardware development efforts.",
+                    role: "Product Lead",
+                    bio: "Helping shape practical product experiences for teams running busy operations.",
                     image:
                       "/lovable-uploads/3de85ddd-15e1-4216-9697-f91abb9a47ce.png",
                   },

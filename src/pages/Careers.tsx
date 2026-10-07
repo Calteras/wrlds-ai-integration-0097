@@ -40,7 +40,7 @@ const Careers = () => {
                   className="text-xl text-gray-600 mb-4"
                 >
                   We're looking for passionate innovators to help us
-                  revolutionize the smart textile industry.
+                  build TerraPOS, offline-first operational software for F&B businesses in Indonesia.
                 </motion.p>
 
                 <motion.p

@@ -66,9 +66,8 @@ const TechDetails = () => {
                 }}
                 className="text-base sm:text-lg text-gray-600 mb-12"
               >
-                Explore the technical details behind our smart textile sensor
-                technology and learn how our system architecture enables rapid
-                development and deployment.
+                Explore the technical foundations behind TerraPOS and learn how
+                our offline-first architecture supports reliable F&B operations.
               </motion.p>
 
               {/* System Architecture Section */}
@@ -92,10 +91,9 @@ const TechDetails = () => {
                 </div>
 
                 <p className="text-gray-600 mb-8 text-base max-w-3xl">
-                  Our platform uses a three-tier architecture connecting
-                  physical devices to our cloud services and user applications.
-                  The diagram below illustrates how data flows through our
-                  system, from sensor collection to user-facing applications.
+                  TerraPOS connects point-of-sale workflows, kitchen operations,
+                  ordering, and analytics. The architecture is designed so
+                  merchant teams can keep working when connectivity is limited.
                 </p>
 
                 {/* Progress bar showing flow */}
@@ -130,11 +128,9 @@ const TechDetails = () => {
                 </div>
 
                 <p className="text-gray-600 mb-8 text-base max-w-3xl">
-                  At Calterras, we've developed a systematic approach to
-                  creating smart textile solutions that combines technical
-                  innovation with practical implementation. Our comprehensive
-                  development process ensures that every project moves
-                  efficiently from concept to market-ready product.
+                  At Calterras, we develop operational software through close
+                  collaboration with the businesses that use it. Our process
+                  moves from merchant discovery to tested, practical releases.
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
