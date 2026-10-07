@@ -48,10 +48,6 @@
     @apply m-0 p-0 overflow-x-hidden;
     width: 100%;
     max-width: 100%;
-    overscroll-behavior-y: none;
-    position: fixed;
-    width: 100%;
-    height: 100%;
   }
 
   body {
@@ -287,4 +283,33 @@
 
 .animate-pulse-slow {
   animation: pulse-slow 4s ease-in-out infinite;
+}
+
+/* Silktide cookie icon — restyled to match page UI */
+#silktide-cookie-icon {
+  background: rgba(15, 23, 42, 0.85) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 50% !important;
+  width: 48px !important;
+  height: 48px !important;
+  padding: 0 !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(96, 165, 250, 0.15) !important;
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease !important;
+  cursor: pointer !important;
+}
+
+#silktide-cookie-icon:hover {
+  background: rgba(30, 41, 59, 0.95) !important;
+  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(96, 165, 250, 0.35) !important;
+  transform: scale(1.08) !important;
+}
+
+#silktide-cookie-icon svg {
+  width: 22px !important;
+  height: 22px !important;
+  fill: #60a5fa !important;
 }

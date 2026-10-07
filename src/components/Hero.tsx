@@ -7,7 +7,7 @@ import { Globe } from "./Globe";
 
 const Hero = () => {
   const [currentWord, setCurrentWord] = useState(0);
-  const words = ["Advanced", "Innovative", "Reliable", "Modern"];
+  const words = ["Transformative", "Innovative", "Future-Ready", "Visionary"];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -141,7 +141,7 @@ const Hero = () => {
         >
           <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
           <span className="text-sm font-medium text-blue-200">
-            Trusted by Healthcare Leaders
+            Calterras Holdings — Technology & Innovation Group
           </span>
         </motion.div>
 
@@ -161,7 +161,7 @@ const Hero = () => {
               </motion.span>
             </AnimatePresence>
             <br />
-            Healthcare Solutions
+            Business Future
           </h1>
         </motion.div>
 
@@ -170,7 +170,7 @@ const Hero = () => {
           className="text-center text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed mb-12"
           variants={itemVariants}
         >
-          Equipment that transforms care. Technology that empowers providers.
+          We build and invest in technology companies that elevate industries — from food & beverage and agriculture to healthcare and human resources.
         </motion.p>
 
         {/* CTA Section */}
@@ -183,7 +183,7 @@ const Hero = () => {
             }}
           >
             <span className="text-white text-[15px] leading-none">
-              Explore Solutions
+              Explore Our Portfolio
             </span>
             <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center">
               <ArrowUpRight className="w-4 h-4 text-gray-900" />
@@ -192,7 +192,7 @@ const Hero = () => {
 
           <button className="flex items-center gap-3 justify-between px-5 py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 transition-colors">
             <span className="text-white text-[15px] leading-none">
-              Request Demo
+              Partner With Us
             </span>
             <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center">
               <ArrowUpRight className="w-4 h-4 text-blue-900" />

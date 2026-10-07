@@ -27,20 +27,20 @@ const ContactInfo = () => {
             <div className="flex flex-col items-center text-center">
               <img
                 src="/lovable-uploads/aa5291bd-2417-4c1e-9a02-0bcc71a92507.png"
-                alt="Felix von Heland"
+                alt="Saifulloh Fadli"
                 className="w-32 h-32 rounded-full mb-4 object-cover filter grayscale"
               />
               <h3 className="text-xl font-bold text-gray-900">
-                Felix von Heland
+                Saifulloh Fadli
               </h3>
               <p className="text-gray-600 mb-4">CEO and Founder</p>
               <div className="flex flex-col space-y-3">
                 <a
-                  href="mailto:felix@Calterras.com"
+                  href="mailto:saifulloh.fadli@calterras.com"
                   className="flex items-center text-gray-700 hover:text-blue-600"
                 >
                   <Mail className="w-5 h-5 mr-2" />
-                  felix@Calterras.com
+                  saifulloh.fadli@calterras.com
                 </a>
                 <a
                   href="https://www.linkedin.com/in/felixvonheland/"

@@ -190,7 +190,7 @@ const About = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {[
                   {
-                    name: "Felix von Heland",
+                    name: "Saifulloh Fadli",
                     role: "CEO and Founder",
                     bio: "Leading Calterras Technologies with a vision to transform the future of smart textiles.",
                     image:

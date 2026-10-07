@@ -1,16 +1,13 @@
-
 import { Link } from 'react-router-dom';
 import { ArrowRight, Newspaper } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import BlogPostCard from '@/components/BlogPostCard';
-import { blogPosts } from '@/data/blogPosts';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { useBlogPosts } from '@/hooks/useBlogPosts';
 
 const BlogPreview = () => {
-  // Get the 3 most recent blog posts
-  const recentPosts = [...blogPosts]
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, 3);
+  const { data: posts = [], isLoading } = useBlogPosts();
+  const recentPosts = posts.slice(0, 3);
 
   return (
     <section id="blog" className="py-12 md:py-24 px-4 md:px-12 bg-white">
@@ -21,9 +18,9 @@ const BlogPreview = () => {
               <Newspaper size={20} className="text-black" />
               <span className="text-black font-medium">Our Blog</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">Latest Updates</h2>
+            <h2 data-gsap-heading className="text-3xl md:text-4xl font-bold mb-4 text-black">Insights & Updates</h2>
             <p className="text-gray-800 max-w-xl">
-              Explore our latest insights on smart textile technology, industry trends, and innovation.
+              Perspectives on technology, business transformation, and innovation from across the Calterras portfolio.
             </p>
           </div>
           <Link to="/blog" className="mt-4 md:mt-0">
@@ -33,51 +30,58 @@ const BlogPreview = () => {
             </Button>
           </Link>
         </div>
-        
-        <div className="relative">
-          <ScrollArea className="w-full">
-            <div className="flex gap-6 pb-4 md:hidden overflow-x-auto snap-x snap-mandatory pl-1">
-              {recentPosts.map((post) => (
-                <div key={post.id} className="flex-none w-[85%] snap-center">
-                  <BlogPostCard
-                    title={post.title}
-                    excerpt={post.excerpt}
-                    imageUrl={post.imageUrl || '/placeholder.svg'}
-                    date={post.date}
-                    slug={post.slug}
-                    category={post.category}
-                  />
-                </div>
-              ))}
-            </div>
-          </ScrollArea>
-          
-          {/* Show grid layout on non-mobile screens */}
-          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {recentPosts.map((post) => (
-              <BlogPostCard
-                key={post.id}
-                title={post.title}
-                excerpt={post.excerpt}
-                imageUrl={post.imageUrl || '/placeholder.svg'}
-                date={post.date}
-                slug={post.slug}
-                category={post.category}
-              />
+
+        {isLoading ? (
+          <div className="grid md:grid-cols-3 gap-6">
+            {[0, 1, 2].map((i) => (
+              <div key={i} className="h-80 bg-gray-100 animate-pulse rounded-lg" />
             ))}
           </div>
-          
-          <div className="mt-4 flex justify-center md:hidden">
-            <div className="flex gap-1">
-              {[0, 1, 2].map((i) => (
-                <div 
-                  key={i} 
-                  className={`h-1.5 rounded-full ${i === 0 ? 'w-6 bg-gray-800' : 'w-2 bg-gray-300'}`}
+        ) : (
+          <div className="relative">
+            <ScrollArea className="w-full">
+              <div className="flex gap-6 pb-4 md:hidden overflow-x-auto snap-x snap-mandatory pl-1">
+                {recentPosts.map((post) => (
+                  <div key={post.id} className="flex-none w-[85%] snap-center">
+                    <BlogPostCard
+                      title={post.title}
+                      excerpt={post.excerpt}
+                      imageUrl={post.imageUrl}
+                      date={post.date}
+                      slug={post.slug}
+                      category={post.category}
+                    />
+                  </div>
+                ))}
+              </div>
+            </ScrollArea>
+
+            <div data-gsap-cards className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {recentPosts.map((post) => (
+                <BlogPostCard
+                  key={post.id}
+                  title={post.title}
+                  excerpt={post.excerpt}
+                  imageUrl={post.imageUrl}
+                  date={post.date}
+                  slug={post.slug}
+                  category={post.category}
                 />
               ))}
             </div>
+
+            <div className="mt-4 flex justify-center md:hidden">
+              <div className="flex gap-1">
+                {[0, 1, 2].map((i) => (
+                  <div
+                    key={i}
+                    className={`h-1.5 rounded-full ${i === 0 ? 'w-6 bg-gray-800' : 'w-2 bg-gray-300'}`}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );

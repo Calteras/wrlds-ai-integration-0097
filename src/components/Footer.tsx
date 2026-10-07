@@ -114,17 +114,12 @@ const Footer = () => {
             </div>
 
             <p className="text-gray-200 mb-6">
-              Calterras Holding is a leading provider of advanced healthcare
-              equipment and medical products, serving hospitals, clinics, and
-              healthcare institutions with quality solutions and comprehensive
-              support.
+              Calterras Holdings is a technology and innovation group building
+              purpose-driven software companies across F&B, HR, Healthcare, and
+              Agriculture — empowering businesses to grow through better tools.
             </p>
             <p className="text-gray-200 mb-6">
-              Medical District Plaza
-              <br />
-              Suite 100, Healthcare Avenue
-              <br />
-              Medical City, MC 12345
+              Indonesia
             </p>
             <div className="flex space-x-4">
               <a
@@ -209,8 +204,7 @@ const Footer = () => {
 
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-300 text-sm mb-4 md:mb-0">
-            © {new Date().getFullYear()} Calterras Holdingss. All rights
-            reserved.
+            © {new Date().getFullYear()} Calterras Holdings. All rights reserved.
           </p>
           <div className="flex space-x-6">
             <Link

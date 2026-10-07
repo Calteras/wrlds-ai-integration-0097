@@ -7,57 +7,45 @@ import { useIsMobile } from "@/hooks/use-mobile";
 const projects = [
   {
     id: 1,
-    title: "Patient Monitoring Systems",
-    brand: "Advanced ICU Solutions",
+    title: "Point-of-Sale & F&B Operations",
+    brand: "TerraPOS",
     description:
-      "Comprehensive patient monitoring equipment providing real-time vital signs tracking, multi-parameter displays, and advanced alarm systems for critical care environments.",
-    tags: ["Monitoring", "ICU", "Vital Signs", "Critical Care"],
+      "A full-stack F&B technology platform covering POS, online ordering, delivery management, and kitchen operations — built for restaurants, cafes, and cloud kitchens that want to scale.",
+    tags: ["POS System", "Food & Beverage", "Delivery", "Restaurant Tech"],
     imageUrl: "/lovable-uploads/93ab0638-8190-4ccf-897f-21fda7f4f5ad.png",
     isFeatured: true,
-    link: "/projects/firecat",
-    details: `
-      Our patient monitoring systems deliver cutting-edge technology for healthcare facilities. Features include continuous vital signs monitoring, ECG, SpO2, blood pressure, temperature tracking, and integrated alarm systems. Benefits: enhanced patient safety, centralized monitoring capabilities, seamless EMR integration, and 24/7 technical support with rapid response times.
-    `,
+    link: "/terrapos",
+    details: `TerraPOS powers F&B businesses with intuitive point-of-sale, digital ordering, delivery routing, and real-time sales analytics — all in one platform.`,
   },
   {
     id: 2,
-    title: "Diagnostic Imaging Equipment",
-    brand: "Calterras Imaging Solutions",
+    title: "Human Resource Management",
+    brand: "Acheron — HR On",
     description:
-      "State-of-the-art diagnostic imaging systems including ultrasound, X-ray, and MRI equipment for accurate medical assessments.",
-    tags: ["Imaging", "Diagnostics", "Radiology", "Medical Technology"],
+      "A modern HRMS that automates the full employee lifecycle — from recruitment and onboarding to payroll, attendance tracking, and performance management.",
+    tags: ["HRMS", "Payroll", "Recruitment", "Workforce Management"],
     imageUrl: "/lovable-uploads/b0622048-17b4-4c75-a3f0-6c9e17de1d09.png",
-    link: "/projects/sport-retail",
+    link: "/acheron",
   },
   {
     id: 3,
-    title: "Surgical Instruments & Equipment",
-    brand: "Precision Surgical Systems",
+    title: "Healthcare Procurement Platform",
+    brand: "Orion Health Gateway",
     description:
-      "Premium surgical instruments and operating room equipment designed for precision, reliability, and optimal surgical outcomes.",
-    tags: ["Surgery", "OR Equipment", "Precision Tools", "Medical Devices"],
+      "A procurement intelligence system connecting hospitals, clinics, and healthcare institutions with verified suppliers for seamless sourcing, compliance, and supply chain management.",
+    tags: ["Healthcare", "Procurement", "Supply Chain", "Medical Industry"],
     imageUrl: "/lovable-uploads/6b0637e9-4a7b-40d0-b219-c8b7f879f93e.png",
-    link: "/projects/workwear",
+    link: "/orion",
   },
   {
     id: 4,
-    title: "Laboratory & Testing Solutions",
-    brand: "Clinical Lab Systems",
+    title: "Smart Agricultural Solutions",
+    brand: "Evita Agriculture",
     description:
-      "Complete laboratory equipment including analyzers, centrifuges, and testing instruments for accurate clinical diagnostics and research.",
-    tags: ["Laboratory", "Clinical Testing", "Diagnostics", "Research"],
+      "Technology tools for farmers and agribusinesses — from crop monitoring and yield forecasting to distribution management and direct buyer marketplace connectivity.",
+    tags: ["AgriTech", "Farm Management", "Crop Analytics", "Agriculture"],
     imageUrl: "/lovable-uploads/c30e0487-2fa0-41d1-9a0b-699cb2855388.png",
-    link: "/projects/hockey",
-  },
-  {
-    id: 5,
-    title: "Sterilization & Hygiene Systems",
-    brand: "Medical Sterilization Solutions",
-    description:
-      "Advanced sterilization equipment and hygiene systems ensuring the highest standards of infection control and patient safety.",
-    tags: ["Sterilization", "Infection Control", "Safety", "Hygiene"],
-    imageUrl: "/lovable-uploads/d5ce901e-2ce0-4f2a-bce1-f0ca5d6192df.png",
-    link: "/projects/pet-tracker",
+    link: "/evita",
   },
 ];
 
@@ -149,13 +137,12 @@ const Projects = () => {
             isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Healthcare Equipment Solutions
+          <h2 data-gsap-heading className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Our Portfolio Companies
           </h2>
           <p className="text-xl text-gray-600 leading-relaxed">
-            Explore our comprehensive range of medical equipment and healthcare
-            products serving hospitals and healthcare institutions worldwide
-            specific needs.
+            Four focused technology companies, each purpose-built to transform
+            operations in its industry — F&B, HR, Healthcare, and Agriculture.
           </p>
           {isMobile && (
             <div className="flex items-center justify-center mt-4 animate-pulse-slow">

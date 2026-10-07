@@ -1,4 +1,5 @@
 
+import { Component, ReactNode } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -6,6 +7,26 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import Index from "./pages/Index";
+
+class ErrorBoundary extends Component<{ children: ReactNode }, { error: Error | null }> {
+  state = { error: null };
+  static getDerivedStateFromError(error: Error) { return { error }; }
+  render() {
+    if (this.state.error) {
+      return (
+        <div style={{ padding: 40, fontFamily: "monospace", background: "#fff", color: "#c00" }}>
+          <h2>Render Error</h2>
+          <pre style={{ whiteSpace: "pre-wrap", fontSize: 13 }}>
+            {(this.state.error as Error).message}
+            {"\n\n"}
+            {(this.state.error as Error).stack}
+          </pre>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
 import NotFound from "./pages/NotFound";
 import FireCatProject from "./pages/FireCatProject";
 import SportRetailProject from "./pages/SportRetailProject";
@@ -24,6 +45,7 @@ const App = () => {
   const [queryClient] = useState(() => new QueryClient());
 
   return (
+    <ErrorBoundary>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
@@ -48,6 +70,7 @@ const App = () => {
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
+    </ErrorBoundary>
   );
 };
 

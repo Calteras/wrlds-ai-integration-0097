@@ -1,20 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import {
-  Layers,
-  BarChart,
-  AlertTriangle,
-  Clock4,
-  Rocket,
-  Zap,
-  Sparkles,
-  ArrowRight,
-  Award,
-  Target,
-  Shield,
-  ChartBar,
-} from "lucide-react";
-import { useIsMobile } from "@/hooks/use-mobile";
+import { BarChart, Sparkles, Zap, Rocket, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const AnimatedCounter = ({
@@ -68,228 +54,184 @@ const AnimatedCounter = ({
   );
 };
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.6 },
+  },
+};
+
+const features = [
+  {
+    ordinal: "01",
+    icon: BarChart,
+    title: "Industry-First Thinking",
+    description:
+      "Every product is designed from within the industry it serves — shaped by real operators, not just engineers.",
+  },
+  {
+    ordinal: "02",
+    icon: Sparkles,
+    title: "Modern, Scalable Tech Stack",
+    description:
+      "Built on cloud-native architecture that scales from a single outlet to enterprise operations without friction.",
+  },
+  {
+    ordinal: "03",
+    icon: Zap,
+    title: "Fast Onboarding & Support",
+    description:
+      "Rapid deployment with guided onboarding and hands-on training so your team is operational from day one.",
+  },
+  {
+    ordinal: "04",
+    icon: Rocket,
+    title: "Long-term Growth Partnership",
+    description:
+      "We grow alongside your business — with continuous product updates, strategic support, and expanding capabilities.",
+  },
+];
+
+const stats = [
+  { end: 4, suffix: " Industries", label: "F&B, HR, Healthcare & Agriculture" },
+  { end: 500, suffix: "+", label: "Businesses powered by Calterras" },
+  { end: 24, suffix: "/7", label: "Ongoing support & dedicated success" },
+];
+
 const WhyCalterras = () => {
-  const isMobile = useIsMobile();
-  const containerVariants = {
-    hidden: {
-      opacity: 0,
-    },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.3,
-        duration: 0.8,
-      },
-    },
-  };
-  const itemVariants = {
-    hidden: {
-      y: 20,
-      opacity: 0,
-    },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-      },
-    },
-  };
   return (
     <section
       id="why-Calterras"
-      className="relative py-24 md:py-32 bg-gradient-to-br from-white via-blue-100 to-indigo-200 overflow-hidden"
+      className="relative py-24 md:py-32 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 overflow-hidden"
     >
+      {/* Blur blobs */}
+      <div data-gsap-blob className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div data-gsap-blob className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-3xl pointer-events-none" />
+
+      {/* Dot-grid overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
+        }}
+      />
+
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <motion.div
-          className="text-center mb-20"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{
-            once: true,
-            margin: "-100px",
-          }}
-          variants={containerVariants}
-        >
-          <motion.h2
-            variants={itemVariants}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6"
-          >
-            Why Choose Calterras?
-          </motion.h2>
-          <motion.p
-            variants={itemVariants}
-            className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
-          >
-            Trusted by leading healthcare institutions for delivering quality
-            medical equipment and comprehensive support
-          </motion.p>
-        </motion.div>
 
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{
-            once: true,
-            margin: "-100px",
-          }}
-          variants={containerVariants}
-        >
+        {/* Header Row */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 mb-0">
           <motion.div
-            variants={itemVariants}
-            className="bg-white p-10 rounded-2xl text-center hover:shadow-lg transition-all"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
           >
-            <h3 className="text-gray-900 text-5xl lg:text-6xl font-bold mb-4">
-              <AnimatedCounter end={658} decimals={0} suffix="B" />
-            </h3>
-            <p className="text-gray-600 text-lg">
-              Global healthcare equipment market value projected by 2030
+            <p data-gsap-eyebrow className="text-blue-400 text-xs font-semibold tracking-[0.2em] uppercase mb-4">
+              WHY CALTERRAS
             </p>
+            <h2 data-gsap-heading className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+              Why Build With Calterras?
+            </h2>
           </motion.div>
 
           <motion.div
-            variants={itemVariants}
-            className="bg-white p-10 rounded-2xl text-center hover:shadow-lg transition-all"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+            viewport={{ once: true }}
+            className="flex flex-col justify-center"
           >
-            <h3 className="text-gray-900 text-5xl lg:text-6xl font-bold mb-4">
-              <AnimatedCounter end={500} suffix="+" />
-            </h3>
-            <p className="text-gray-600 text-lg">
-              Healthcare facilities trust our reliable medical equipment
+            <p className="text-gray-400 text-lg leading-relaxed">
+              We don't just build software — we embed ourselves into industries
+              and create technology that drives lasting operational transformation.
             </p>
-          </motion.div>
-
-          <motion.div
-            variants={itemVariants}
-            className="bg-white p-10 rounded-2xl text-center hover:shadow-lg transition-all"
-          >
-            <h3 className="text-gray-900 text-5xl lg:text-6xl font-bold mb-4">
-              <AnimatedCounter end={24} suffix="/7" />
-            </h3>
-            <p className="text-gray-600 text-lg">
-              Round-the-clock technical support and maintenance
-            </p>
-          </motion.div>
-        </motion.div>
-
-        <motion.div
-          className="mb-16"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{
-            once: true,
-            margin: "-100px",
-          }}
-          variants={containerVariants}
-        >
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              What We Deliver for Your Institution
-            </h3>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Comprehensive healthcare equipment solutions designed to enhance
-              patient care and operational efficiency
-            </p>
-          </motion.div>
-
-          <motion.div
-            variants={containerVariants}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8"
-          >
-            <motion.div
-              variants={itemVariants}
-              className="bg-white p-8 rounded-2xl hover:shadow-lg transition-all border border-gray-100"
-            >
-              <div className="flex items-start">
-                <div className="bg-gray-900 rounded-lg p-3 mr-6">
-                  <BarChart className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h4 className="text-2xl font-bold text-gray-900 mb-3">
-                    Quality Medical Equipment
-                  </h4>
-                  <p className="text-gray-600 text-lg">
-                    Certified, reliable equipment meeting international
-                    healthcare standards and regulatory requirements.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              variants={itemVariants}
-              className="bg-white p-8 rounded-2xl hover:shadow-lg transition-all border border-gray-100"
-            >
-              <div className="flex items-start">
-                <div className="bg-gray-900 rounded-lg p-3 mr-6">
-                  <Sparkles className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h4 className="text-2xl font-bold text-gray-900 mb-3">
-                    Latest Technology
-                  </h4>
-                  <p className="text-gray-600 text-lg">
-                    Access to cutting-edge medical technology and innovative
-                    healthcare solutions.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              variants={itemVariants}
-              className="bg-white p-8 rounded-2xl hover:shadow-lg transition-all border border-gray-100"
-            >
-              <div className="flex items-start">
-                <div className="bg-gray-900 rounded-lg p-3 mr-6">
-                  <Zap className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h4 className="text-2xl font-bold text-gray-900 mb-3">
-                    Fast Installation & Support
-                  </h4>
-                  <p className="text-gray-600 text-lg">
-                    Rapid deployment and comprehensive training to ensure
-                    seamless integration.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              variants={itemVariants}
-              className="bg-white p-8 rounded-2xl hover:shadow-lg transition-all border border-gray-100"
-            >
-              <div className="flex items-start">
-                <div className="bg-gray-900 rounded-lg p-3 mr-6">
-                  <Rocket className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h4 className="text-2xl font-bold text-gray-900 mb-3">
-                    Long-term Partnership
-                  </h4>
-                  <p className="text-gray-600 text-lg">
-                    Ongoing maintenance, upgrades, and dedicated support for
-                    your facility's growth.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          <motion.div variants={itemVariants} className="text-center mt-16">
             <Link
               to="/development-process"
               onClick={() => window.scrollTo(0, 0)}
-              className="inline-flex items-center px-8 py-4 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-all group text-lg font-medium"
+              className="border border-white/20 text-white hover:bg-white hover:text-gray-950 rounded-lg px-6 py-3 text-sm font-medium transition-all inline-flex items-center gap-2 mt-6 w-fit"
             >
-              Learn more about our service process
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              Learn how we work →
             </Link>
           </motion.div>
+        </div>
+
+        {/* Stats Band */}
+        <div className="border-y border-white/10 py-12 my-16">
+          <motion.div
+            className="grid grid-cols-3"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={containerVariants}
+          >
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                data-gsap-stat
+                className="text-center px-8 border-r border-white/10 last:border-r-0"
+              >
+                <div className="text-5xl md:text-6xl font-bold text-white tabular-nums">
+                  <AnimatedCounter end={stat.end} suffix={stat.suffix} decimals={0} />
+                </div>
+                <p className="text-gray-500 text-sm mt-2 tracking-wide">
+                  {stat.label}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Feature Grid */}
+        <motion.div
+          data-gsap-cards
+          className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={containerVariants}
+        >
+          {features.map((feature) => {
+            const Icon = feature.icon;
+            return (
+              <motion.div
+                key={feature.ordinal}
+                variants={itemVariants}
+                className="bg-white/[0.03] p-10 group hover:bg-white/[0.07] transition-colors"
+              >
+                <div className="flex items-center justify-between mb-6">
+                  <div className="bg-white/10 group-hover:bg-blue-500/20 transition-colors rounded-xl p-3">
+                    <Icon className="w-5 h-5 text-gray-400 group-hover:text-blue-400 transition-colors" />
+                  </div>
+                  <span className="text-4xl font-bold text-white/5 group-hover:text-white/10 transition-colors tabular-nums select-none">
+                    {feature.ordinal}
+                  </span>
+                </div>
+                <h4 className="text-xl font-semibold text-white mb-3">
+                  {feature.title}
+                </h4>
+                <p className="text-gray-500 leading-relaxed">
+                  {feature.description}
+                </p>
+              </motion.div>
+            );
+          })}
         </motion.div>
+
       </div>
     </section>
   );
